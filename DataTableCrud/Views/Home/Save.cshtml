@@ -1,0 +1,44 @@
+﻿@model DataTableCrud.Models.Employee
+
+<h2>Save</h2>
+@using (Html.BeginForm("save","home", FormMethod.Post, new { id = "popupForm" }))
+{
+    if(Model != null && Model.EmployeeId > 0)
+    {
+        @Html.HiddenFor(e=>e.EmployeeId)
+    }
+
+    <div class="form-group">
+        <label>First Name</label>
+        @Html.TextBoxFor(e=>e.FirstName, new { @class = "form-control"})
+        @Html.ValidationMessageFor(e=>e.FirstName)
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        @Html.TextBoxFor(e => e.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.LastName)
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.Email)
+    </div>
+
+    <div class="form-group">
+        <label>City</label>
+        @Html.TextBoxFor(e => e.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.City)
+    </div>
+
+    <div class="form-group">
+        <label>Country</label>
+        @Html.TextBoxFor(e => e.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.Country)
+    </div>
+
+    <div>
+        <input type="submit" value="save" />
+    </div>
+}
